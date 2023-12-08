@@ -1,11 +1,9 @@
 name: databricks-cicd
-...
 jobs:
   main:
     runs-on: ubuntu-latest
     # Name of the environment you created
     environment: my-environment
-    ...
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
