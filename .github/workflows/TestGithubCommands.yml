@@ -33,3 +33,17 @@ jobs:
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
           databricks clusters list
+          
+      # List the Databricks Repos within workspace whose details and token are stored in the GitHub Environment "dev" (Databricks API)
+      - name: List Databricks Repos (API)
+        id: dbxListRepos
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: '${{vars.DATABRICKS_HOST}}api/2.0/repos'
+          method: 'GET'
+          bearerToken: ${{secrets.DATABRICKS_TOKEN}}
+          customHeaders: '{"Content-Type": "application/json"}'
+      - name: Show Response
+        run: |
+          echo ${{ steps.dbxListRepos.outputs.response }}
+          echo ${{ steps.dbxListRepos.outputs.headers }}
