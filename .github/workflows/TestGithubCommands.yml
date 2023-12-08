@@ -34,7 +34,6 @@ jobs:
         run: |
           databricks clusters list
           
-      # List the Databricks Repos within workspace whose details and token are stored in the GitHub Environment "dev" (Databricks API)
       - name: List Databricks Repos (API)
         id: dbxListRepos
         uses: fjogeleit/http-request-action@v1
