@@ -38,7 +38,7 @@ jobs:
         id: myRequest
         uses: fjogeleit/http-request-action@v1
         with:
-          url: '${{vars.DATABRICKS_HOST}}api/2.0/repos'
+          url: '${{vars.DATABRICKS_HOST}}/api/2.0/repos'
           method: 'GET'
           bearerToken: ${{secrets.DATABRICKS_TOKEN}}
           customHeaders: '{"Content-Type": "application/json"}'
